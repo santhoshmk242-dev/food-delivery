@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ZESTO - Food Delivery</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo" onclick="showPage('home')">
+        <span class="logo-symbol">🍴</span>
+        <span>ZESTO</span>
+    </div>
+
+    <nav>
+
+        <a href="#" onclick="showPage('home')">
+            Home
+        </a>
+
+        <a href="#" onclick="showPage('restaurants')">
+            Restaurants
+        </a>
+
+        <a href="#" onclick="showPage('menu')">
+            Menu
+        </a>
+
+        <a href="#" onclick="showPage('offers')">
+            Offers
+        </a>
+
+        <a href="#" onclick="showPage('cart')">
+            Cart
+            <span id="navCartCount">0</span>
+        </a>
+
+        <a href="#">
+            Contact
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     HOME PAGE
+========================= -->
+
+<section id="homePage" class="page active-page">
+
+    <div class="home-hero">
+
+        <div class="hero-content">
+
+            <div class="hero-tag">
+                ✦ FRESH · FAST · DELICIOUS
+            </div>
+
+            <h1>
+                Your cravings.<br>
+                <span>Our restaurants.</span>
+            </h1>
+
+            <p>
+                Order delicious food from your favourite restaurants
+                and get everything delivered to your doorstep.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button
+                    class="orange-button"
+                    onclick="showPage('restaurants')">
+
+                    Explore Restaurants →
+
+                </button>
+
+                <button
+                    class="white-button"
+                    onclick="showPage('offers')">
+
+                    View Offers
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-image-area">
+
+            <div class="hero-circle">
+
+                <img
+                    src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=90"
+                    alt="Delicious food">
+
+            </div>
+
+            <div class="floating-card rating-card">
+                ⭐ 4.9 Rating
+            </div>
+
+            <div class="floating-card delivery-card">
+                🚀 Fast Delivery
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="benefits">
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                🚀
+            </div>
+
+            <h3>
+                Fast Delivery
+            </h3>
+
+            <p>
+                Hot food at your doorstep.
+            </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                🏪
+            </div>
+
+            <h3>
+                Many Restaurants
+            </h3>
+
+            <p>
+                Choose from multiple restaurants.
+            </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                🍱
+            </div>
+
+            <h3>
+                Huge Menu
+            </h3>
+
+            <p>
+                Thousands of tasty choices.
+            </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                💳
+            </div>
+
+            <h3>
+                Easy Payment
+            </h3>
+
+            <p>
+                Multiple payment options.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     RESTAURANTS PAGE
+========================= -->
+
+<section id="restaurantsPage" class="page">
+
+    <div class="restaurants-container">
+
+        <div class="page-title">
+
+            <h1>
+                Restaurants near you
+            </h1>
+
+            <p>
+                Choose a restaurant and explore its delicious menu.
+            </p>
+
+            <div class="search-box">
+
+                <span>
+                    🔍
+                </span>
+
+                <input
+                    id="restaurantSearch"
+                    type="text"
+                    placeholder="Search restaurants or cuisines...">
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="restaurantGrid"
+            class="restaurant-grid">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     MENU PAGE
+========================= -->
+
+<section id="menuPage" class="page">
+
+    <div class="menu-container">
+
+        <div class="order-bar">
+
+            <div>
+                🍴 Ordering from
+                <strong id="currentRestaurant">
+                    South Spice
+                </strong>
+            </div>
+
+            <button
+                class="orange-button small-button"
+                onclick="showPage('restaurants')">
+
+                Show All Restaurants
+
+            </button>
+
+        </div>
+
+
+        <div class="menu-search">
+
+            <span>
+                🔍
+            </span>
+
+            <input
+                id="menuSearch"
+                type="text"
+                placeholder="Search pizza, biryani, dosa...">
+
+        </div>
+
+
+        <div class="restaurant-filter">
+
+            <button
+                class="restaurant-filter-button active"
+                onclick="selectRestaurant('All Restaurants',this)">
+
+                🍴 All Restaurants
+
+            </button>
+
+            <button
+                class="restaurant-filter-button"
+                onclick="selectRestaurant('Zesto Kitchen',this)">
+
+                Zesto Kitchen
+
+            </button>
+
+            <button
+                class="restaurant-filter-button"
+                onclick="selectRestaurant('Royal Biryani House',this)">
+
+                Royal Biryani House
+
+            </button>
+
+            <button
+                class="restaurant-filter-button active-south"
+                onclick="selectRestaurant('South Spice',this)">
+
+                South Spice
+
+            </button>
+
+            <button
+                class="restaurant-filter-button"
+                onclick="selectRestaurant('Pizza House',this)">
+
+                Pizza House
+
+            </button>
+
+            <button
+                class="restaurant-filter-button"
+                onclick="selectRestaurant('Burger Barn',this)">
+
+                Burger Barn
+
+            </button>
+
+            <button
+                class="restaurant-filter-button"
+                onclick="selectRestaurant('Dragon Wok',this)">
+
+                Dragon Wok
+
+            </button>
+
+            <button
+                class="restaurant-filter-button"
+                onclick="selectRestaurant('Cafe Bliss',this)">
+
+                Cafe Bliss
+
+            </button>
+
+            <button
+                class="restaurant-filter-button"
+                onclick="selectRestaurant('Tandoori Nation',this)">
+
+                Tandoori Nation
+
+            </button>
+
+        </div>
+
+
+        <div class="category-filter">
+
+            <button
+                class="category-button active"
+                onclick="selectCategory('All',this)">
+
+                All
+
+            </button>
+
+            <button
+                class="category-button"
+                onclick="selectCategory('Pizza',this)">
+
+                🍕 Pizza
+
+            </button>
+
+            <button
+                class="category-button"
+                onclick="selectCategory('Burgers',this)">
+
+                🍔 Burgers
+
+            </button>
+
+            <button
+                class="category-button"
+                onclick="selectCategory('Biryani',this)">
+
+                🍛 Biryani
+
+            </button>
+
+            <button
+                class="category-button"
+                onclick="selectCategory('South Indian',this)">
+
+                🥘 South Indian
+
+            </button>
+
+            <button
+                class="category-button"
+                onclick="selectCategory('Chinese',this)">
+
+                🍜 Chinese
+
+            </button>
+
+            <button
+                class="category-button"
+                onclick="selectCategory('Starters',this)">
+
+                🍗 Starters
+
+            </button>
+
+            <button
+                class="category-button"
+                onclick="selectCategory('Snacks',this)">
+
+                🍟 Snacks
+
+            </button>
+
+            <button
+                class="category-button"
+                onclick="selectCategory('Desserts',this)">
+
+                🍰 Desserts
+
+            </button>
+
+            <button
+                class="category-button"
+                onclick="selectCategory('Drinks',this)">
+
+                🥤 Drinks
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="menuGrid"
+            class="food-grid">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     OFFERS PAGE
+========================= -->
+
+<section id="offersPage" class="page">
+
+    <div class="offers-container">
+
+        <div class="page-title">
+
+            <div class="orange-label">
+                SPECIAL OFFERS
+            </div>
+
+            <h1>
+                Delicious deals for you
+            </h1>
+
+            <p>
+                Grab exciting offers from your favourite restaurants.
+            </p>
+
+        </div>
+
+
+        <div class="offers-grid">
+
+            <div class="offer-card">
+
+                <div class="offer-icon">
+                    🍕
+                </div>
+
+                <h2>
+                    20% OFF
+                </h2>
+
+                <p>
+                    On selected pizzas
+                </p>
+
+                <span>
+                    Use code: ZESTO20
+                </span>
+
+            </div>
+
+
+            <div class="offer-card">
+
+                <div class="offer-icon">
+                    🍔
+                </div>
+
+                <h2>
+                    ₹100 OFF
+                </h2>
+
+                <p>
+                    On orders above ₹499
+                </p>
+
+                <span>
+                    Use code: FIRST100
+                </span>
+
+            </div>
+
+
+            <div class="offer-card">
+
+                <div class="offer-icon">
+                    🚀
+                </div>
+
+                <h2>
+                    FREE DELIVERY
+                </h2>
+
+                <p>
+                    On selected restaurants
+                </p>
+
+                <span>
+                    Limited time offer
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CART PAGE
+========================= -->
+
+<section id="cartPage" class="page">
+
+    <div class="cart-container">
+
+        <div class="cart-heading">
+
+            <div class="orange-label">
+                YOUR ORDER
+            </div>
+
+            <h1>
+                Your Cart
+            </h1>
+
+            <p>
+                You can order from multiple restaurants in one cart.
+            </p>
+
+        </div>
+
+
+        <div id="cartItems">
+
+        </div>
+
+
+        <div
+            id="cartEmpty"
+            class="empty-cart">
+
+            <div class="empty-icon">
+                🛒
+            </div>
+
+            <h2>
+                Your cart is empty
+            </h2>
+
+            <p>
+                Add some delicious food to continue.
+            </p>
+
+            <button
+                class="orange-button"
+                onclick="showPage('menu')">
+
+                Browse Menu
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="cartTotals"
+            class="cart-totals">
+
+            <div class="total-line">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <strong id="subtotal">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="total-line">
+
+                <span>
+                    Delivery
+                </span>
+
+                <strong>
+                    ₹40
+                </strong>
+
+            </div>
+
+
+            <div class="total-line grand-total">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="total">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="cart-buttons">
+
+                <button
+                    class="dark-button"
+                    onclick="clearCart()">
+
+                    Clear Cart
+
+                </button>
+
+
+                <button
+                    class="orange-button"
+                    onclick="showPage('checkout')">
+
+                    Proceed to Checkout →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CHECKOUT PAGE
+========================= -->
+
+<section id="checkoutPage" class="page checkout-page">
+
+    <div class="checkout-card">
+
+        <div class="order-summary">
+
+            <div class="summary-title">
+                🛒 Order Summary
+            </div>
+
+            <div id="checkoutItems">
+
+            </div>
+
+        </div>
+
+
+        <form
+            id="checkoutForm">
+
+            <label>
+                Full Name
+
+                <input
+                    id="fullName"
+                    type="text"
+                    required
+                    placeholder="Enter your full name">
+
+            </label>
+
+
+            <label>
+                Phone Number
+
+                <input
+                    id="phoneNumber"
+                    type="tel"
+                    required
+                    placeholder="Enter phone number">
+
+            </label>
+
+
+            <label>
+                Delivery Address
+
+                <textarea
+                    id="deliveryAddress"
+                    required
+                    placeholder="Enter delivery address"></textarea>
+
+            </label>
+
+
+            <label>
+                Delivery Time
+
+                <select id="deliveryTime">
+
+                    <option>
+                        As soon as possible
+                    </option>
+
+                    <option>
+                        Within 30 minutes
+                    </option>
+
+                    <option>
+                        Within 1 hour
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <label>
+                Payment Method
+
+                <select id="paymentMethod">
+
+                    <option>
+                        💳 UPI
+                    </option>
+
+                    <option>
+                        💳 Card
+                    </option>
+
+                    <option>
+                        💵 Cash on Delivery
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <div class="amount-box">
+
+                <span>
+                    Amount Payable
+                </span>
+
+                <strong id="checkoutTotal">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="checkout-buttons">
+
+                <button
+                    type="button"
+                    class="dark-button"
+                    onclick="showPage('cart')">
+
+                    ← Back to Cart
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="orange-button">
+
+                    Place Order ✓
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SUCCESS PAGE
+========================= -->
+
+<section id="successPage" class="page success-page">
+
+    <div class="success-card">
+
+        <div class="success-check">
+            ✓
+        </div>
+
+        <div class="success-label">
+            ORDER CONFIRMED
+        </div>
+
+        <h1>
+            Your order is on its way!
+        </h1>
+
+        <p>
+            Thank you for ordering with ZESTO.
+        </p>
+
+
+        <div
+            id="orderDetails"
+            class="order-details">
+
+        </div>
+
+
+        <button
+            class="orange-button"
+            onclick="showPage('menu')">
+
+            Order More Food
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
